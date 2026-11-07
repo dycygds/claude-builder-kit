@@ -81,8 +81,13 @@ try {
     $branch = (& git rev-parse --abbrev-ref HEAD).Trim()
     if ($branch -ne 'main') { & git branch -M main; $branch = 'main' }
 
-    & git remote remove origin 2>$null
+    # `git remote remove` exits non-zero when there is no origin, and with
+    # $ErrorActionPreference='Stop' that aborted the whole push. Check first.
+    $ErrorActionPreference = 'Continue'
+    $remotes = & git remote
+    if ($remotes -contains 'origin') { & git remote remove origin | Out-Null }
     & git remote add origin "https://github.com/$fullName.git"
+    $ErrorActionPreference = 'Stop'
 
     $basic = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("x-access-token:$token"))
     & git -c http.extraheader="AUTHORIZATION: basic $basic" push -u origin $branch
