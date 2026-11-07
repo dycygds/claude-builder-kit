@@ -1,18 +1,27 @@
 # claude-builder-kit
 
-Three production-grade Claude Code building blocks, plus one tool that tells you which
-bounties are actually worth building them for.
+**A guard, a changelog generator and a PR reviewer for Claude Code — plus the tool that tells
+you which bounties can actually pay.**
 
-Everything here was written and **executed on this machine**: 67 tests pass, every sample
-in `samples/` is a captured run against real repositories and real pull requests. No mock-ups,
-no "left as an exercise".
+The guard stops an agent *mid-command* instead of after the damage. The changelog turns
+`git log` into something a user can read. The reviewer works with **no API key**. Everything is
+one file, zero dependencies, Python 3.8+ — and every number below is a captured run on a real
+repository, not a mock-up.
 
-| Component | What it is | Status |
+```bash
+git clone https://github.com/dycygds/claude-builder-kit && cd claude-builder-kit
+python hooks/block-destructive-bash/install.py    # one command; restart Claude Code after
+```
+
+| Component | What it is | Proof |
 |---|---|---|
 | [`hooks/block-destructive-bash`](hooks/block-destructive-bash/README.md) | `PreToolUse` hook that blocks `rm -rf`, `DROP TABLE`, `TRUNCATE`, `DELETE` without `WHERE`, `git push --force`, raw disk writes — and survives 12 denial-evasion techniques | 40/40 tests · `DEMO.txt` captured run |
 | [`skills/generate-changelog`](skills/generate-changelog/README.md) | `CHANGELOG.md` generator: commits since the last tag → Added / Fixed / Changed / Removed | tested on `openai/openai-python` (54 tags) |
 | [`agents/pr-reviewer`](agents/pr-reviewer/README.md) | `claude-review --pr <url>` → structured review comment (Summary / Risks / Suggestions / Confidence) + drop-in GitHub Action | 27/27 tests · 3 real PRs reviewed |
 | [`tools/bounty-scout`](tools/bounty-scout/README.md) | Ranks bounties by payout evidence: payout-bot receipt, funded label, competition, maintainer merge rate | live scan captured: $2,145 across 10 issues |
+
+**Start here if you only read one line:** the hook. It is the only piece here that prevents a
+loss rather than producing an artefact.
 
 ## Why it exists
 

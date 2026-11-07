@@ -62,15 +62,40 @@ That single `gh repo create … --push` does creation, remote, and push in one s
 
 ## After the push (two minutes, big payoff)
 
+**Status on this machine:** the repo is already live at
+`https://github.com/dycygds/claude-builder-kit` — `git push` cannot reach github.com:443 on
+this network (TCP blocked, API fine), so it was published through
+[`tools/push-via-api`](tools/push-via-api/push_via_api.py) instead.
+
+### 1. Pin the repo so it is the first thing on your profile
+
+1. Open <https://github.com/dycygds>
+2. Click **Customize your pins** (right of the *Pinned* heading), or the pencil icon next to it
+3. Tick **claude-builder-kit**; untick anything you do not want shown (max 6)
+4. Click **Save pins**
+
+GitHub has no API for pinned items — this one is UI-only.
+
+### 2. Add a profile README (the strongest single move)
+
+A repository named exactly `dycygds` renders its `README.md` at the top of your profile page.
+The content is written and ready in [`outreach/profile-readme.md`](outreach/profile-readme.md):
+
 ```powershell
-# topics make the repo discoverable in GitHub search
+# creates dycygds/dycygds and publishes the profile README
+$env:GITHUB_TOKEN = "ghp_..."
+python tools/push-via-api/publish_profile.py
+```
+
+Edit `outreach/profile-readme.md` first if you want different wording — it is plain Markdown.
+
+### 3. Topics (already set by `push.ps1`)
+
+```powershell
 gh repo edit dycygds/claude-builder-kit `
   --add-topic claude-code,claude,ai-agents,devtools,hooks,bounty
-
-# pin it on your profile so the two existing repos do not hide it
-# (Settings → Profile → Pinned items, or:)
-gh api -X PATCH user/pinned_repositories ...   # or just do it in the browser
 ```
+
 
 Then the launch material is already written and points at the live URL:
 
