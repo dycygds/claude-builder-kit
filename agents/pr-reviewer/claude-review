@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# `claude-review` — the CLI shape the issue asks for:
+#
+#   claude-review --pr https://github.com/owner/repo/pull/123
+#   claude-review --pr owner/repo#123 --comment
+#
+# Symlink or copy this onto your PATH, or set REVIEWER=/path/to/claude_review.py.
+set -euo pipefail
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+pick_python() {
+  local candidate
+  for candidate in "${PYTHON:-}" python3 python; do
+    [ -n "$candidate" ] || continue
+    if "$candidate" -c 'import sys; sys.exit(0 if sys.version_info >= (3, 8) else 1)' >/dev/null 2>&1; then
+      printf '%s' "$candidate"
+      return 0
+    fi
+  done
+  return 1
+}
+
+if ! PY="$(pick_python)"; then
+  echo "error: Python 3.8+ not found (set PYTHON=/path/to/python3)" >&2
+  exit 127
+fi
+
+exec "$PY" "${REVIEWER:-$DIR/claude_review.py}" "$@"

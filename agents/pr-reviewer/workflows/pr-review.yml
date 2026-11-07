@@ -1,0 +1,48 @@
+name: claude-review
+
+# Posts a structured review (Summary / Risks / Suggestions / Confidence) on every PR.
+# Copy this file to .github/workflows/pr-review.yml in the repository you want reviewed,
+# and change REVIEWER_REPO below to wherever claude-builder-kit lives.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    env:
+      REVIEWER_REPO: dycygds/claude-builder-kit
+    steps:
+      - name: Fetch the reviewer
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.REVIEWER_REPO }}
+          path: .reviewer
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Review the PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: set this secret to use the Claude engine instead of local analysis.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set -euo pipefail
+          engine=local
+          if [ -n "${ANTHROPIC_API_KEY:-}" ]; then engine=claude; fi
+          python .reviewer/agents/pr-reviewer/claude_review.py \
+            --pr "${{ github.event.pull_request.html_url }}" \
+            --engine "$engine" \
+            --comment

@@ -1,0 +1,12 @@
+# do not commit local scratch data
+_demo/
+*.pyc
+__pycache__/
+.venv/
+venv/
+
+# editor / OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

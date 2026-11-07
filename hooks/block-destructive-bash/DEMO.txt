@@ -1,0 +1,86 @@
+========================================================================
+$ rm -rf /
+  -> exit 2  (BLOCKED, message fed back to Claude)
+
+BLOCKED by block-destructive-bash (Claude Code PreToolUse hook)
+==============================================================
+Command: rm -rf /
+Project: /project/payments
+
+- [rm_critical_path] Recursive delete of a system/home/root path can destroy the OS or every uncommitted file you have.
+  offending: /
+
+What to do instead:
+  * narrow the target (e.g. `rm -rf ./dist`, not `rm -rf /`)
+  * add a WHERE clause, or wrap the delete in a transaction
+  * use `git push --force-with-lease` instead of `--force`
+  * if this really is intended, run it yourself in a terminal;
+    the agent is intentionally not allowed to do it unattended.
+
+Logged to: C:\Users\N\.claude\hooks\blocked.log
+========================================================================
+$ git push --force origin main
+  -> exit 2  (BLOCKED, message fed back to Claude)
+
+BLOCKED by block-destructive-bash (Claude Code PreToolUse hook)
+==============================================================
+Command: git push --force origin main
+Project: /project/payments
+
+- [git_push_force] A forced push rewrites remote history and can erase commits that other people already based work on. Use `--force-with-lease`, which refuses when the remote moved under you.
+  offending: git push --force origin main
+
+What to do instead:
+  * narrow the target (e.g. `rm -rf ./dist`, not `rm -rf /`)
+  * add a WHERE clause, or wrap the delete in a transaction
+  * use `git push --force-with-lease` instead of `--force`
+  * if this really is intended, run it yourself in a terminal;
+    the agent is intentionally not allowed to do it unattended.
+
+Logged to: C:\Users\N\.claude\hooks\blocked.log
+========================================================================
+$ bash -c "rm -rf /"
+  -> exit 2  (BLOCKED, message fed back to Claude)
+
+BLOCKED by block-destructive-bash (Claude Code PreToolUse hook)
+==============================================================
+Command: bash -c "rm -rf /"
+Project: /project/payments
+
+- [rm_critical_path] Recursive delete of a system/home/root path can destroy the OS or every uncommitted file you have.
+  offending: /
+
+What to do instead:
+  * narrow the target (e.g. `rm -rf ./dist`, not `rm -rf /`)
+  * add a WHERE clause, or wrap the delete in a transaction
+  * use `git push --force-with-lease` instead of `--force`
+  * if this really is intended, run it yourself in a terminal;
+    the agent is intentionally not allowed to do it unattended.
+
+Logged to: C:\Users\N\.claude\hooks\blocked.log
+========================================================================
+$ psql -c 'DELETE FROM users'
+  -> exit 2  (BLOCKED, message fed back to Claude)
+
+BLOCKED by block-destructive-bash (Claude Code PreToolUse hook)
+==============================================================
+Command: psql -c 'DELETE FROM users'
+Project: /project/payments
+
+- [sql_delete_without_where] `DELETE FROM` without a `WHERE` clause deletes every row in the table. Add a WHERE clause, or use a transaction you can roll back.
+  offending: DELETE FROM users
+
+What to do instead:
+  * narrow the target (e.g. `rm -rf ./dist`, not `rm -rf /`)
+  * add a WHERE clause, or wrap the delete in a transaction
+  * use `git push --force-with-lease` instead of `--force`
+  * if this really is intended, run it yourself in a terminal;
+    the agent is intentionally not allowed to do it unattended.
+
+Logged to: C:\Users\N\.claude\hooks\blocked.log
+========================================================================
+$ rm -rf ./node_modules
+  -> exit 0  (allowed, silent)
+========================================================================
+$ git push --force-with-lease origin main
+  -> exit 0  (allowed, silent)

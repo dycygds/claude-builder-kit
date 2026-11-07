@@ -1,0 +1,200 @@
+[
+  {
+    "owner": "lablab-ai",
+    "repo": "community-content",
+    "number": 462,
+    "title": "Crafting a Comprehensive Tutorial for Vectara Chat",
+    "url": "https://github.com/lablab-ai/community-content/issues/462",
+    "labels": [
+      "💎 Bounty"
+    ],
+    "amount": 60.0,
+    "comments": 32,
+    "updated_days": 0.06659932686342593,
+    "merged_180d": 89,
+    "score": 14.29,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $60 bounty [• LabLab.ai](https://algora.io/lablab-ai)",
+    "notes": []
+  },
+  {
+    "owner": "onyx-dot-app",
+    "repo": "onyx",
+    "number": 2281,
+    "title": "Jira Service Management Connector",
+    "url": "https://github.com/onyx-dot-app/onyx/issues/2281",
+    "labels": [
+      "enhancement",
+      "maintainer approved",
+      "💎 Bounty"
+    ],
+    "amount": 250.0,
+    "comments": 185,
+    "updated_days": 0.05644209935185185,
+    "merged_180d": 4467,
+    "score": 12.82,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $250 bounty [• Onyx (YC W24)](https://algora.io/onyx-dot-app)",
+    "notes": []
+  },
+  {
+    "owner": "getdozer",
+    "repo": "dozer",
+    "number": 1653,
+    "title": "WASM UDF support",
+    "url": "https://github.com/getdozer/dozer/issues/1653",
+    "labels": [
+      "💎 Bounty"
+    ],
+    "amount": 600.0,
+    "comments": 30,
+    "updated_days": 0.07991600011574074,
+    "merged_180d": 0,
+    "score": 7.5,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $600 bounty [• Dozer Data](https://algora.io/getdozer)",
+    "notes": []
+  },
+  {
+    "owner": "getdozer",
+    "repo": "dozer",
+    "number": 1659,
+    "title": "Support for `IN` clause in streaming SQL",
+    "url": "https://github.com/getdozer/dozer/issues/1659",
+    "labels": [
+      "💎 Bounty"
+    ],
+    "amount": 600.0,
+    "comments": 44,
+    "updated_days": 0.0945919274074074,
+    "merged_180d": 0,
+    "score": 5.56,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $600 bounty [• Dozer Data](https://algora.io/getdozer)",
+    "notes": []
+  },
+  {
+    "owner": "getdozer",
+    "repo": "dozer",
+    "number": 1690,
+    "title": "Sample: Dozer + LLM + Vector database + Langchain sample",
+    "url": "https://github.com/getdozer/dozer/issues/1690",
+    "labels": [
+      "documentation",
+      "💎 Bounty"
+    ],
+    "amount": 250.0,
+    "comments": 60,
+    "updated_days": 0.07571201150462964,
+    "merged_180d": 0,
+    "score": 1.79,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $250 bounty [• Dozer Data](https://algora.io/getdozer)",
+    "notes": []
+  },
+  {
+    "owner": "highlight",
+    "repo": "highlight",
+    "number": 8032,
+    "title": "document sveltekit backend instrumentation",
+    "url": "https://github.com/highlight/highlight/issues/8032",
+    "labels": [
+      "💎 Bounty"
+    ],
+    "amount": 20.0,
+    "comments": 105,
+    "updated_days": 0.06108610668981482,
+    "merged_180d": 8,
+    "score": 1.74,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $20 bounty [• Highlight (YC W23)](https://algora.io/highlight)",
+    "notes": []
+  },
+  {
+    "owner": "outerbase",
+    "repo": "starbasedb",
+    "number": 71,
+    "title": "Improve test coverage with Vitest",
+    "url": "https://github.com/outerbase/starbasedb/issues/71",
+    "labels": [
+      "enhancement",
+      "💎 Bounty",
+      "💰 Rewarded"
+    ],
+    "amount": 250.0,
+    "comments": 114,
+    "updated_days": 0.06539191989583333,
+    "merged_180d": 0,
+    "score": 1.01,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $250 bounty [• Outerbase (YC W23)](https://algora.io/outerbase)",
+    "notes": []
+  },
+  {
+    "owner": "tryabby",
+    "repo": "abby",
+    "number": 68,
+    "title": "Vue Integration",
+    "url": "https://github.com/tryabby/abby/issues/68",
+    "labels": [
+      "enhancement",
+      "hacktoberfest",
+      "💎 Bounty"
+    ],
+    "amount": 40.0,
+    "comments": 50,
+    "updated_days": 0.07384668731481481,
+    "merged_180d": 0,
+    "score": 0.33,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $40 bounty [• Abby](https://algora.io/Abby)",
+    "notes": []
+  },
+  {
+    "owner": "arakoodev",
+    "repo": "EdgeChains",
+    "number": 290,
+    "title": "BOUNTY: integrate AWS Comprehend as a utility to redact data",
+    "url": "https://github.com/arakoodev/EdgeChains/issues/290",
+    "labels": [
+      "💎 Bounty",
+      "$50"
+    ],
+    "amount": 50.0,
+    "comments": 125,
+    "updated_days": 0.10431414962962963,
+    "merged_180d": 0,
+    "score": 0.19,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $50 bounty [• gittare](https://algora.io/gittare)",
+    "notes": []
+  },
+  {
+    "owner": "arakoodev",
+    "repo": "EdgeChains",
+    "number": 279,
+    "title": "BOUNTY: add support for Google Palm2 API in javascript/typescript",
+    "url": "https://github.com/arakoodev/EdgeChains/issues/279",
+    "labels": [
+      "💎 Bounty"
+    ],
+    "amount": 25.0,
+    "comments": 72,
+    "updated_days": 0.10478640638888889,
+    "merged_180d": 0,
+    "score": 0.15,
+    "funded_label": true,
+    "platform": "algora",
+    "evidence": "## 💎 $25 bounty [• Arakoo.ai](https://algora.io/arakoodev)",
+    "notes": []
+  }
+]
